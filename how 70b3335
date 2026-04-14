@@ -1,0 +1,1093 @@
+[33mcommit f6474155662a52cb655a1a0b6b2df30acac72485[m
+Author: maverickann <viniciuseslopes@gmail.com>
+Date:   Tue Apr 14 13:55:55 2026 -0300
+
+    inicio
+
+[1mdiff --git a/angular.json b/angular.json[m
+[1mindex 671ee53..906642f 100644[m
+[1m--- a/angular.json[m
+[1m+++ b/angular.json[m
+[36m@@ -2,7 +2,8 @@[m
+   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",[m
+   "version": 1,[m
+   "cli": {[m
+[31m-    "packageManager": "npm"[m
+[32m+[m[32m    "packageManager": "npm",[m
+[32m+[m[32m    "analytics": "9b3e9133-323e-45c7-b930-48592100d2f7"[m
+   },[m
+   "newProjectRoot": "projects",[m
+   "projects": {[m
+[1mdiff --git a/src/app/app.css b/src/app/app.css[m
+[1mindex e69de29..8d05518 100644[m
+[1m--- a/src/app/app.css[m
+[1m+++ b/src/app/app.css[m
+[36m@@ -0,0 +1,142 @@[m
+[32m+[m[32m.form-row {[m
+[32m+[m[32m  display: grid;[m
+[32m+[m[32m  gap: 1rem;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-row-idade {[m
+[32m+[m[32m  grid-template-columns: 1fr;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-row-two-columns {[m
+[32m+[m[32m  grid-template-columns: 1fr;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-group {[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  flex-direction: column;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-label {[m
+[32m+[m[32m  display: block;[m
+[32m+[m[32m  margin-bottom: 0.5rem;[m
+[32m+[m[32m  font-size: 0.875rem;[m
+[32m+[m[32m  font-weight: 500;[m
+[32m+[m[32m  color: #334155;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-input {[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m  border: 1px solid #cbd5e1;[m
+[32m+[m[32m  border-radius: 0.75rem;[m
+[32m+[m[32m  padding: 0.75rem 1rem;[m
+[32m+[m[32m  outline: none;[m
+[32m+[m[32m  transition: border-color 0.2s ease, box-shadow 0.2s ease;[m
+[32m+[m[32m  background: #ffffff;[m
+[32m+[m[32m  color: #0f172a;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-input:focus {[m
+[32m+[m[32m  border-color: #3b82f6;[m
+[32m+[m[32m  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-button-wrapper {[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  align-items: flex-end;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-actions {[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  flex-direction: column;[m
+[32m+[m[32m  gap: 0.75rem;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn {[m
+[32m+[m[32m  border: none;[m
+[32m+[m[32m  border-radius: 0.75rem;[m
+[32m+[m[32m  padding: 0.75rem 1.25rem;[m
+[32m+[m[32m  font-weight: 500;[m
+[32m+[m[32m  color: #ffffff;[m
+[32m+[m[32m  cursor: pointer;[m
+[32m+[m[32m  transition: background-color 0.2s ease;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn-primary {[m
+[32m+[m[32m  background: #2563eb;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn-primary:hover {[m
+[32m+[m[32m  background: #1d4ed8;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn-success {[m
+[32m+[m[32m  background: #059669;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn-success:hover {[m
+[32m+[m[32m  background: #047857;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn-purple {[m
+[32m+[m[32m  background: #9333ea;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn-purple:hover {[m
+[32m+[m[32m  background: #7e22ce;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-card {[m
+[32m+[m[32m  border-radius: 1rem;[m
+[32m+[m[32m  padding: 1rem;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-card-ano-nascimento {[m
+[32m+[m[32m  background: #eff6ff;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-card-imc {[m
+[32m+[m[32m  background: #ecfdf5;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-card-status {[m
+[32m+[m[32m  background: #faf5ff;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-label {[m
+[32m+[m[32m  font-size: 0.875rem;[m
+[32m+[m[32m  font-weight: 500;[m
+[32m+[m[32m  margin: 0;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-value {[m
+[32m+[m[32m  margin-top: 0.25rem;[m
+[32m+[m[32m  font-size: 1.125rem;[m
+[32m+[m[32m  font-weight: 600;[m
+[32m+[m[32m  color: #0f172a;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-card-ano-nascimento .result-label {[m
+[32m+[m[32m  color: #1d4ed8;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-card-imc .result-label {[m
+[32m+[m[32m  color: #047857;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-card-status .result-label {[m
+[32m+[m[32m  color: #7e22ce;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m@media (min-width: 768px) {[m
+[32m+[m[32m  .form-row-age {[m
+[32m+[m[32m    grid-template-columns: 1fr auto;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  .form-row-two-columns {[m
+[32m+[m[32m    grid-template-columns: 1fr 1fr;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  .form-actions {[m
+[32m+[m[32m    flex-direction: row;[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/src/app/app.html b/src/app/app.html[m
+[1mindex a1c4296..3c2a102 100644[m
+[1m--- a/src/app/app.html[m
+[1m+++ b/src/app/app.html[m
+[36m@@ -1,344 +1,25 @@[m
+[31m-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->[m
+[31m-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->[m
+[31m-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->[m
+[31m-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->[m
+[31m-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->[m
+[31m-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->[m
+[31m-<!-- * * * * * * * to get started with your project! * * * * * * * -->[m
+[31m-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->[m
+[32m+[m[32m<div class="flex  pad-7">[m
+ [m
+[31m-<style>[m
+[31m-  :host {[m
+[31m-    --bright-blue: oklch(51.01% 0.274 263.83);[m
+[31m-    --electric-violet: oklch(53.18% 0.28 296.97);[m
+[31m-    --french-violet: oklch(47.66% 0.246 305.88);[m
+[31m-    --vivid-pink: oklch(69.02% 0.277 332.77);[m
+[31m-    --hot-red: oklch(61.42% 0.238 15.34);[m
+[31m-    --orange-red: oklch(63.32% 0.24 31.68);[m
+[32m+[m[32m  <input class=" border rd-border mr-3" [(ngModel)]="numero01" type="number" >[m
+[32m+[m[32m<input class=" border mr-1" [(ngModel)]="numero02" type="number" >[m
+ [m
+[31m-    --gray-900: oklch(19.37% 0.006 300.98);[m
+[31m-    --gray-700: oklch(36.98% 0.014 302.71);[m
+[31m-    --gray-400: oklch(70.9% 0.015 304.04);[m
+ [m
+[31m-    --red-to-pink-to-purple-vertical-gradient: linear-gradient([m
+[31m-      180deg,[m
+[31m-      var(--orange-red) 0%,[m
+[31m-      var(--vivid-pink) 50%,[m
+[31m-      var(--electric-violet) 100%[m
+[31m-    );[m
+ [m
+[31m-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient([m
+[31m-      90deg,[m
+[31m-      var(--orange-red) 0%,[m
+[31m-      var(--vivid-pink) 50%,[m
+[31m-      var(--electric-violet) 100%[m
+[31m-    );[m
+ [m
+[31m-    --pill-accent: var(--bright-blue);[m
+ [m
+[31m-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,[m
+[31m-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",[m
+[31m-      "Segoe UI Symbol";[m
+[31m-    box-sizing: border-box;[m
+[31m-    -webkit-font-smoothing: antialiased;[m
+[31m-    -moz-osx-font-smoothing: grayscale;[m
+[31m-    display: block;[m
+[31m-    height: 100dvh;[m
+[31m-  }[m
+[32m+[m[32m  <button  class="ml-3"(click)="somar()">Somar</button>[m
+[32m+[m[32m  <button class="ml-3" (click)="diminuir()">diminuir</button>[m
+[32m+[m[32m  <button class="ml-3" (click)="multiplicar()">multiplicar</button>[m
+[32m+[m[32m  <button class="ml-3"  (click)="dividir()">divisao</button>[m
+ [m
+[31m-  h1 {[m
+[31m-    font-size: 3.125rem;[m
+[31m-    color: var(--gray-900);[m
+[31m-    font-weight: 500;[m
+[31m-    line-height: 100%;[m
+[31m-    letter-spacing: -0.125rem;[m
+[31m-    margin: 0;[m
+[31m-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,[m
+[31m-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",[m
+[31m-      "Segoe UI Symbol";[m
+[31m-  }[m
+ [m
+[31m-  p {[m
+[31m-    margin: 0;[m
+[31m-    color: var(--gray-700);[m
+[31m-  }[m
+[32m+[m[32m</div>[m
+ [m
+[31m-  main {[m
+[31m-    width: 100%;[m
+[31m-    min-height: 100%;[m
+[31m-    display: flex;[m
+[31m-    justify-content: center;[m
+[31m-    align-items: center;[m
+[31m-    padding: 1rem;[m
+[31m-    box-sizing: inherit;[m
+[31m-    position: relative;[m
+[31m-  }[m
+[32m+[m[32m  <app-paciente>[m
+[32m+[m[41m    [m
+[32m+[m[32m  </app-paciente>[m
+[32m+[m[32m  <app-carro>[m
+ [m
+[31m-  .angular-logo {[m
+[31m-    max-width: 9.2rem;[m
+[31m-  }[m
+[31m-[m
+[31m-  .content {[m
+[31m-    display: flex;[m
+[31m-    justify-content: space-around;[m
+[31m-    width: 100%;[m
+[31m-    max-width: 700px;[m
+[31m-    margin-bottom: 3rem;[m
+[31m-  }[m
+[31m-[m
+[31m-  .content h1 {[m
+[31m-    margin-top: 1.75rem;[m
+[31m-  }[m
+[31m-[m
+[31m-  .content p {[m
+[31m-    margin-top: 1.5rem;[m
+[31m-  }[m
+[31m-[m
+[31m-  .divider {[m
+[31m-    width: 1px;[m
+[31m-    background: var(--red-to-pink-to-purple-vertical-gradient);[m
+[31m-    margin-inline: 0.5rem;[m
+[31m-  }[m
+[31m-[m
+[31m-  .pill-group {[m
+[31m-    display: flex;[m
+[31m-    flex-direction: column;[m
+[31m-    align-items: start;[m
+[31m-    flex-wrap: wrap;[m
+[31m-    gap: 1.25rem;[m
+[31m-  }[m
+[31m-[m
+[31m-  .pill {[m
+[31m-    display: flex;[m
+[31m-    align-items: center;[m
+[31m-    --pill-accent: var(--bright-blue);[m
+[31m-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);[m
+[31m-    color: var(--pill-accent);[m
+[31m-    padding-inline: 0.75rem;[m
+[31m-    padding-block: 0.375rem;[m
+[31m-    border-radius: 2.75rem;[m
+[31m-    border: 0;[m
+[31m-    transition: background 0.3s ease;[m
+[31m-    font-family: var(--inter-font);[m
+[31m-    font-size: 0.875rem;[m
+[31m-    font-style: normal;[m
+[31m-    font-weight: 500;[m
+[31m-    line-height: 1.4rem;[m
+[31m-    letter-spacing: -0.00875rem;[m
+[31m-    text-decoration: none;[m
+[31m-    white-space: nowrap;[m
+[31m-  }[m
+[31m-[m
+[31m-  .pill:hover {[m
+[31m-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);[m
+[31m-  }[m
+[31m-[m
+[31m-  .pill-group .pill:nth-child(6n + 1) {[m
+[31m-    --pill-accent: var(--bright-blue);[m
+[31m-  }[m
+[31m-  .pill-group .pill:nth-child(6n + 2) {[m
+[31m-    --pill-accent: var(--electric-violet);[m
+[31m-  }[m
+[31m-  .pill-group .pill:nth-child(6n + 3) {[m
+[31m-    --pill-accent: var(--french-violet);[m
+[31m-  }[m
+[31m-[m
+[31m-  .pill-group .pill:nth-child(6n + 4),[m
+[31m-  .pill-group .pill:nth-child(6n + 5),[m
+[31m-  .pill-group .pill:nth-child(6n + 6) {[m
+[31m-    --pill-accent: var(--hot-red);[m
+[31m-  }[m
+[31m-[m
+[31m-  .pill-group svg {[m
+[31m-    margin-inline-start: 0.25rem;[m
+[31m-  }[m
+[31m-[m
+[31m-  .social-links {[m
+[31m-    display: flex;[m
+[31m-    align-items: center;[m
+[31m-    gap: 0.73rem;[m
+[31m-    margin-top: 1.5rem;[m
+[31m-  }[m
+[31m-[m
+[31m-  .social-links path {[m
+[31m-    transition: fill 0.3s ease;[m
+[31m-    fill: var(--gray-400);[m
+[31m-  }[m
+[31m-[m
+[31m-  .social-links a:hover svg path {[m
+[31m-    fill: var(--gray-900);[m
+[31m-  }[m
+[31m-[m
+[31m-  @media screen and (max-width: 650px) {[m
+[31m-    .content {[m
+[31m-      flex-direction: column;[m
+[31m-      width: max-content;[m
+[31m-    }[m
+[31m-[m
+[31m-    .divider {[m
+[31m-      height: 1px;[m
+[31m-      width: 100%;[m
+[31m-      background: var(--red-to-pink-to-purple-horizontal-gradient);[m
+[31m-      margin-block: 1.5rem;[m
+[31m-    }[m
+[31m-  }[m
+[31m-</style>[m
+[31m-[m
+[31m-<main class="main">[m
+[31m-  <div class="content">[m
+[31m-    <div class="left-side">[m
+[31m-      <svg[m
+[31m-        xmlns="http://www.w3.org/2000/svg"[m
+[31m-        viewBox="0 0 982 239"[m
+[31m-        fill="none"[m
+[31m-        class="angular-logo"[m
+[31m-      >[m
+[31m-        <g clip-path="url(#a)">[m
+[31m-          <path[m
+[31m-            fill="url(#b)"[m
+[31m-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"[m
+[31m-          />[m
+[31m-          <path[m
+[31m-            fill="url(#c)"[m
+[31m-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"[m
+[31m-          />[m
+[31m-        </g>[m
+[31m-        <defs>[m
+[31m-          <radialGradient[m
+[31m-            id="c"[m
+[31m-            cx="0"[m
+[31m-            cy="0"[m
+[31m-            r="1"[m
+[31m-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"[m
+[31m-            gradientUnits="userSpaceOnUse"[m
+[31m-          >[m
+[31m-            <stop stop-color="#FF41F8" />[m
+[31m-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />[m
+[31m-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />[m
+[31m-          </radialGradient>[m
+[31m-          <linearGradient[m
+[31m-            id="b"[m
+[31m-            x1="0"[m
+[31m-            x2="982"[m
+[31m-            y1="192"[m
+[31m-            y2="192"[m
+[31m-            gradientUnits="userSpaceOnUse"[m
+[31m-          >[m
+[31m-            <stop stop-color="#F0060B" />[m
+[31m-            <stop offset="0" stop-color="#F0070C" />[m
+[31m-            <stop offset=".526" stop-color="#CC26D5" />[m
+[31m-            <stop offset="1" stop-color="#7702FF" />[m
+[31m-          </linearGradient>[m
+[31m-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>[m
+[31m-        </defs>[m
+[31m-      </svg>[m
+[31m-      <h1>Hello, {{ title() }}</h1>[m
+[31m-      <p>Congratulations! Your app is running. 🎉</p>[m
+[31m-    </div>[m
+[31m-    <div class="divider" role="separator" aria-label="Divider"></div>[m
+[31m-    <div class="right-side">[m
+[31m-      <div class="pill-group">[m
+[31m-        @for (item of [[m
+[31m-          { title: 'Explore the Docs', link: 'https://angular.dev' },[m
+[31m-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },[m
+[31m-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},[m
+[31m-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },[m
+[31m-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },[m
+[31m-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },[m
+[31m-        ]; track item.title) {[m
+[31m-          <a[m
+[31m-            class="pill"[m
+[31m-            [href]="item.link"[m
+[31m-            target="_blank"[m
+[31m-            rel="noopener"[m
+[31m-          >[m
+[31m-            <span>{{ item.title }}</span>[m
+[31m-            <svg[m
+[31m-              xmlns="http://www.w3.org/2000/svg"[m
+[31m-              height="14"[m
+[31m-              viewBox="0 -960 960 960"[m
+[31m-              width="14"[m
+[31m-              fill="currentColor"[m
+[31m-            >[m
+[31m-              <path[m
+[31m-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"[m
+[31m-              />[m
+[31m-            </svg>[m
+[31m-          </a>[m
+[31m-        }[m
+[31m-      </div>[m
+[31m-      <div class="social-links">[m
+[31m-        <a[m
+[31m-          href="https://github.com/angular/angular"[m
+[31m-          aria-label="Github"[m
+[31m-          target="_blank"[m
+[31m-          rel="noopener"[m
+[31m-        >[m
+[31m-          <svg[m
+[31m-            width="25"[m
+[31m-            height="24"[m
+[31m-            viewBox="0 0 25 24"[m
+[31m-            fill="none"[m
+[31m-            xmlns="http://www.w3.org/2000/svg"[m
+[31m-            alt="Github"[m
+[31m-          >[m
+[31m-            <path[m
+[31m-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"[m
+[31m-            />[m
+[31m-          </svg>[m
+[31m-        </a>[m
+[31m-        <a[m
+[31m-          href="https://x.com/angular"[m
+[31m-          aria-label="X"[m
+[31m-          target="_blank"[m
+[31m-          rel="noopener"[m
+[31m-        >[m
+[31m-          <svg[m
+[31m-            width="24"[m
+[31m-            height="24"[m
+[31m-            viewBox="0 0 24 24"[m
+[31m-            fill="none"[m
+[31m-            xmlns="http://www.w3.org/2000/svg"[m
+[31m-            alt="X"[m
+[31m-          >[m
+[31m-            <path[m
+[31m-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"[m
+[31m-            />[m
+[31m-          </svg>[m
+[31m-        </a>[m
+[31m-        <a[m
+[31m-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"[m
+[31m-          aria-label="Youtube"[m
+[31m-          target="_blank"[m
+[31m-          rel="noopener"[m
+[31m-        >[m
+[31m-          <svg[m
+[31m-            width="29"[m
+[31m-            height="20"[m
+[31m-            viewBox="0 0 29 20"[m
+[31m-            fill="none"[m
+[31m-            xmlns="http://www.w3.org/2000/svg"[m
+[31m-            alt="Youtube"[m
+[31m-          >[m
+[31m-            <path[m
+[31m-              fill-rule="evenodd"[m
+[31m-              clip-rule="evenodd"[m
+[31m-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"[m
+[31m-            />[m
+[31m-          </svg>[m
+[31m-        </a>[m
+[31m-      </div>[m
+[31m-    </div>[m
+[31m-  </div>[m
+[31m-</main>[m
+[31m-[m
+[31m-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->[m
+[31m-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->[m
+[31m-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->[m
+[31m-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->[m
+[31m-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->[m
+[31m-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->[m
+[31m-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->[m
+[31m-[m
+[31m-[m
+[31m-<router-outlet />[m
+[32m+[m[32m  </app-carro>[m[41m [m
+[32m+[m[32m  <app-termo></app-termo>[m
+[41m+  [m
+\ No newline at end of file[m
+[1mdiff --git a/src/app/app.ts b/src/app/app.ts[m
+[1mindex 9abf94e..bf31d31 100644[m
+[1m--- a/src/app/app.ts[m
+[1m+++ b/src/app/app.ts[m
+[36m@@ -1,12 +1,48 @@[m
+ import { Component, signal } from '@angular/core';[m
+[32m+[m[32mimport { FormsModule } from '@angular/forms';[m
+ import { RouterOutlet } from '@angular/router';[m
+[32m+[m[32mimport { PacienteComponent } from './paciente/paciente';[m
+[32m+[m[32mimport { CarroComponent } from './carro/carro';[m
+[32m+[m[32mimport { TermoComponent } from './termo/termo';[m
+ [m
+ @Component({[m
+   selector: 'app-root',[m
+[31m-  imports: [RouterOutlet],[m
+[32m+[m[32m  imports: [RouterOutlet,FormsModule,PacienteComponent,CarroComponent,TermoComponent],[m
+   templateUrl: './app.html',[m
+   styleUrl: './app.css'[m
+ })[m
+ export class App {[m
+   protected readonly title = signal('loja-ng');[m
+[32m+[m[32m  numero01: number = 0;[m
+[32m+[m[32m  numero02: number= 0;[m
+[32m+[m[41m  [m
+[32m+[m[41m  [m
+[32m+[m[41m  [m
+[32m+[m[41m  [m
+[32m+[m[32m  apresentarMensagem(): void{[m
+[32m+[m[32m    alert('Olá, seja bem-vindo à loja-ng!');[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[41m  [m
+[32m+[m[32m  somar(): void{[m
+[32m+[m[32m    let soma  = this.numero01 + this.numero02;[m
+[32m+[m[41m    [m
+[32m+[m[32m    alert(` O resultado da soma é: ${ soma }`);[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m   diminuir(): void{[m
+[32m+[m[32m    let menos  = this.numero01 + this.numero02;[m
+[32m+[m[41m    [m
+[32m+[m[32m    alert(` O resultado da subtração é: ${ menos }`);[m
+[32m+[m[32m  }[m
+[32m+[m[32m   multiplicar(): void{[m
+[32m+[m[32m    let multiplicar  = this.numero01 + this.numero02;[m
+[32m+[m[41m    [m
+[32m+[m[32m    alert(` O resultado da multiplicação é: ${ multiplicar }`);[m
+[32m+[m[32m  }[m
+[32m+[m[32m dividir(): void{[m
+[32m+[m[32m    let divisão  = this.numero01 + this.numero02;[m
+[32m+[m[41m    [m
+[32m+[m[32m    alert(` O resultado da divisão é: ${ divisão }`);[m
+[32m+[m[32m  }[m
+ }[m
+[1mdiff --git a/src/app/carro/carro.css b/src/app/carro/carro.css[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
+[1mdiff --git a/src/app/carro/carro.html b/src/app/carro/carro.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8b13789[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/carro/carro.html[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m
+[1mdiff --git a/src/app/carro/carro.spec.ts b/src/app/carro/carro.spec.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..fdd2647[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/carro/carro.spec.ts[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32mimport { ComponentFixture, TestBed } from '@angular/core/testing';[m
+[32m+[m
+[32m+[m[32mimport { Carro } from './carro';[m
+[32m+[m
+[32m+[m[32mdescribe('Carro', () => {[m
+[32m+[m[32m  let component: Carro;[m
+[32m+[m[32m  let fixture: ComponentFixture<Carro>;[m
+[32m+[m
+[32m+[m[32m  beforeEach(async () => {[m
+[32m+[m[32m    await TestBed.configureTestingModule({[m
+[32m+[m[32m      imports: [Carro],[m
+[32m+[m[32m    }).compileComponents();[m
+[32m+[m
+[32m+[m[32m    fixture = TestBed.createComponent(Carro);[m
+[32m+[m[32m    component = fixture.componentInstance;[m
+[32m+[m[32m    await fixture.whenStable();[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  it('should create', () => {[m
+[32m+[m[32m    expect(component).toBeTruthy();[m
+[32m+[m[32m  });[m
+[32m+[m[32m});[m
+[1mdiff --git a/src/app/carro/carro.ts b/src/app/carro/carro.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..54b65dc[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/carro/carro.ts[m
+[36m@@ -0,0 +1,14 @@[m
+[32m+[m[32mimport { Component } from '@angular/core';[m
+[32m+[m[32mimport { FormsModule } from '@angular/forms';[m
+[32m+[m
+[32m+[m[32m@Component({[m
+[32m+[m[32m  selector: 'app-carro',[m
+[32m+[m[32m  imports: [FormsModule],[m
+[32m+[m[32m  templateUrl: './carro.html',[m
+[32m+[m[32m  styleUrl: './carro.css',[m
+[32m+[m[32m})[m
+[32m+[m[32mexport class CarroComponent {[m
+[32m+[m
+[32m+[m
+[32m+[m[41m  [m
+[32m+[m[32m}[m
+[1mdiff --git a/src/app/paciente/paciente.css b/src/app/paciente/paciente.css[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8d05518[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/paciente/paciente.css[m
+[36m@@ -0,0 +1,142 @@[m
+[32m+[m[32m.form-row {[m
+[32m+[m[32m  display: grid;[m
+[32m+[m[32m  gap: 1rem;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-row-idade {[m
+[32m+[m[32m  grid-template-columns: 1fr;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-row-two-columns {[m
+[32m+[m[32m  grid-template-columns: 1fr;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-group {[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  flex-direction: column;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-label {[m
+[32m+[m[32m  display: block;[m
+[32m+[m[32m  margin-bottom: 0.5rem;[m
+[32m+[m[32m  font-size: 0.875rem;[m
+[32m+[m[32m  font-weight: 500;[m
+[32m+[m[32m  color: #334155;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-input {[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m  border: 1px solid #cbd5e1;[m
+[32m+[m[32m  border-radius: 0.75rem;[m
+[32m+[m[32m  padding: 0.75rem 1rem;[m
+[32m+[m[32m  outline: none;[m
+[32m+[m[32m  transition: border-color 0.2s ease, box-shadow 0.2s ease;[m
+[32m+[m[32m  background: #ffffff;[m
+[32m+[m[32m  color: #0f172a;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-input:focus {[m
+[32m+[m[32m  border-color: #3b82f6;[m
+[32m+[m[32m  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-button-wrapper {[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  align-items: flex-end;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.form-actions {[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  flex-direction: column;[m
+[32m+[m[32m  gap: 0.75rem;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn {[m
+[32m+[m[32m  border: none;[m
+[32m+[m[32m  border-radius: 0.75rem;[m
+[32m+[m[32m  padding: 0.75rem 1.25rem;[m
+[32m+[m[32m  font-weight: 500;[m
+[32m+[m[32m  color: #ffffff;[m
+[32m+[m[32m  cursor: pointer;[m
+[32m+[m[32m  transition: background-color 0.2s ease;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn-primary {[m
+[32m+[m[32m  background: #2563eb;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn-primary:hover {[m
+[32m+[m[32m  background: #1d4ed8;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn-success {[m
+[32m+[m[32m  background: #059669;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn-success:hover {[m
+[32m+[m[32m  background: #047857;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn-purple {[m
+[32m+[m[32m  background: #9333ea;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn-purple:hover {[m
+[32m+[m[32m  background: #7e22ce;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-card {[m
+[32m+[m[32m  border-radius: 1rem;[m
+[32m+[m[32m  padding: 1rem;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-card-ano-nascimento {[m
+[32m+[m[32m  background: #eff6ff;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-card-imc {[m
+[32m+[m[32m  background: #ecfdf5;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-card-status {[m
+[32m+[m[32m  background: #faf5ff;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-label {[m
+[32m+[m[32m  font-size: 0.875rem;[m
+[32m+[m[32m  font-weight: 500;[m
+[32m+[m[32m  margin: 0;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-value {[m
+[32m+[m[32m  margin-top: 0.25rem;[m
+[32m+[m[32m  font-size: 1.125rem;[m
+[32m+[m[32m  font-weight: 600;[m
+[32m+[m[32m  color: #0f172a;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-card-ano-nascimento .result-label {[m
+[32m+[m[32m  color: #1d4ed8;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-card-imc .result-label {[m
+[32m+[m[32m  color: #047857;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.result-card-status .result-label {[m
+[32m+[m[32m  color: #7e22ce;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m@media (min-width: 768px) {[m
+[32m+[m[32m  .form-row-age {[m
+[32m+[m[32m    grid-template-columns: 1fr auto;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  .form-row-two-columns {[m
+[32m+[m[32m    grid-template-columns: 1fr 1fr;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  .form-actions {[m
+[32m+[m[32m    flex-direction: row;[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/src/app/paciente/paciente.html b/src/app/paciente/paciente.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6a5ddc4[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/paciente/paciente.html[m
+[36m@@ -0,0 +1,69 @@[m
+[32m+[m[32m<div class="min-h-screen bg-slate-100 p-6">[m
+[32m+[m[32m    <div class="mx-auto max-w-3xl rounded-2xl bg-white p-6 shadow-lg">[m
+[32m+[m[32m        <h1 class="mb-6 text-2xl font-bold text-slate-800">Formulario do Paciente</h1>[m
+[32m+[m[32m        <div class="grid gap-6">[m
+[32m+[m[32m            <div class="grid gap-4 md:grid-cols-2">[m
+[32m+[m[32m                <div>[m
+[32m+[m[32m                    <label for="nome" class="mb-2  block text-sm font-medium text-slate-700">Nome</label>[m
+[32m+[m[32m                    <input type="text" id="nome" [(ngModel)]="nome"[m
+[32m+[m[32m                        class="w-full rounded-xl border border-slate-300 py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-200"[m
+[32m+[m[32m                        placeholder="Digite seu nome">[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m                <div>[m
+[32m+[m[32m                    <label for="sobrenome" class="mb-2 block text-sm font-medium text-slate-700">Sobrenome</label>[m
+[32m+[m[32m                    <input type="text" [(ngModel)]="sobrenome" id="sobrenome"[m
+[32m+[m[32m                        class="w-full rounded-xl border border-slate-300 py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-200"[m
+[32m+[m[32m                        placeholder="Digite seu sobrenome">[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m            </div>[m
+[32m+[m[32m            <div class="rounded-2x2 bg-slate-50 p-4">[m
+[32m+[m[32m                <p class="text-sm font-medium text-slate-500">nome completo</p>[m
+[32m+[m[32m                <p class="mt-1 text-lg font-semibold textslate-800">{{ nomeCompleto.trim() }}</p>[m
+[32m+[m[32m            </div>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div class="form-row form-row-idade">[m
+[32m+[m[32m            <div class="form-grupo">[m
+[32m+[m[32m                <label for="idade" class="form-label">Idade</label>[m
+[32m+[m[32m                <input type="number" id="idade" class="form-input" [(ngModel)]="idade" placeholder="Digite sua idade">[m
+[32m+[m[32m            </div>[m
+[32m+[m[32m            <div>[m
+[32m+[m[32m                <button type="button" (click)="apresentarAnoNascimento()" class="bnt bnt-primary">Ano de[m
+[32m+[m[32m                    Nascimento</button>[m
+[32m+[m[32m            </div>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        @if (anoNascimento !==null) {[m
+[32m+[m[32m            <div class="result-card result-ano-nascimento">[m
+[32m+[m[32m                <p clpss="result-label">Ano de Nascimento</p>[m
+[32m+[m[32m                <p class="resulte-value">{{anoNascimento}}  </p>[m
+[32m+[m[32m            </div>[m
+[32m+[m[32m        }[m
+[32m+[m[32m        <div class="form-row for-row-two-columns ">[m
+[32m+[m[32m            <div class="form-group">[m
+[32m+[m[32m                <label for="peso">Digite seu peso (kg)</label>[m
+[32m+[m[32m                <input type="number" id="peso" class="form-input" [(ngModel)]="peso" placeholder="Digite seu peso">[m
+[32m+[m[32m            </div>[m
+[32m+[m[32m            <div class="form-group">[m
+[32m+[m[32m                <label for="altura">Digite sua altura (m)</label>[m
+[32m+[m[32m                <input type="number" id="altura" class="form-input" [(ngModel)]="altura" placeholder="Digite sua altura">[m
+[32m+[m[32m            </div>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div >[m
+[32m+[m[32m            <div class="form-action">[m
+[32m+[m[32m                <button type="button" (click)="cacularImc()" class="btn btn-success">Calcular IMC</button>[m
+[32m+[m[41m               [m
+[32m+[m[32m            </div>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        @if (imc!==null) {[m
+[32m+[m[32m            <div class="result-card result-card-imc">[m
+[32m+[m[32m                <p class="result-label">IMC</p>[m
+[32m+[m[32m                <p class="result-value">{{imc.toFixed(2).replace(".", ",")}}</p>[m
+[32m+[m[32m            </div>[m
+[32m+[m[32m        }[m
+[32m+[m[32m        @if (imcStatusResultado !==null) {[m
+[32m+[m[32m            <div class="result-card result-card-status">[m
+[32m+[m[32m                <p class="result-label">Status do IMC</p>[m
+[32m+[m[32m                <p class="result-value">{{imcStatusResultado}}</p>[m
+[32m+[m[32m            </div>[m
+[32m+[m[32m        }[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m</div>[m
+[1mdiff --git a/src/app/paciente/paciente.spec.ts b/src/app/paciente/paciente.spec.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f32a519[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/paciente/paciente.spec.ts[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32mimport { ComponentFixture, TestBed } from '@angular/core/testing';[m
+[32m+[m
+[32m+[m[32mimport { Paciente } from './paciente';[m
+[32m+[m
+[32m+[m[32mdescribe('Paciente', () => {[m
+[32m+[m[32m  let component: Paciente;[m
+[32m+[m[32m  let fixture: ComponentFixture<Paciente>;[m
+[32m+[m
+[32m+[m[32m  beforeEach(async () => {[m
+[32m+[m[32m    await TestBed.configureTestingModule({[m
+[32m+[m[32m      imports: [Paciente],[m
+[32m+[m[32m    }).compileComponents();[m
+[32m+[m
+[32m+[m[32m    fixture = TestBed.createComponent(Paciente);[m
+[32m+[m[32m    component = fixture.componentInstance;[m
+[32m+[m[32m    await fixture.whenStable();[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  it('should create', () => {[m
+[32m+[m[32m    expect(component).toBeTruthy();[m
+[32m+[m[32m  });[m
+[32m+[m[32m});[m
+[1mdiff --git a/src/app/paciente/paciente.ts b/src/app/paciente/paciente.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..fb400f0[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/paciente/paciente.ts[m
+[36m@@ -0,0 +1,62 @@[m
+[32m+[m[32mimport { Component, input } from '@angular/core';[m
+[32m+[m[32mimport { FormsModule, NgModel } from '@angular/forms';[m
+[32m+[m
+[32m+[m[32m@Component({[m
+[32m+[m[32m  selector: 'app-paciente',[m
+[32m+[m[32m  imports: [FormsModule],[m
+[32m+[m[32m  templateUrl: './paciente.html',[m
+[32m+[m[32m  styleUrl: './paciente.css',[m
+[32m+[m[32m})[m
+[32m+[m[32mexport class PacienteComponent {[m
+[32m+[m[32m  nome: string = "";[m
+[32m+[m[32m  sobrenome: string = "";[m
+[32m+[m[32m  idade: number | null = null;[m
+[32m+[m[32m  anoNascimento: number | null = null;[m
+[32m+[m[32m  altura: number | null = null;[m
+[32m+[m[32m  peso: number | null = null;[m
+[32m+[m[32m  imc: number | null = null;[m
+[32m+[m[32m  imcStatusResultado:  string  = '';[m
+[32m+[m
+[32m+[m[32m  get nomeCompleto(): string {[m
+[32m+[m
+[32m+[m[32m    return `${this.nome}  ${this.sobrenome}`[m
+[32m+[m
+[32m+[m
+[32m+[m[32m  }[m
+[32m+[m[32m  apresentarAnoNascimento(): void {[m
+[32m+[m[32m    if (this.idade === null || this.idade <= 0) {[m
+[32m+[m[32m      alert('Por favor, insira uma idade válida.');[m
+[32m+[m[32m      return;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    const anoAtual = new Date().getFullYear();[m
+[32m+[m[32m    this.anoNascimento = anoAtual - this.idade;[m
+[32m+[m[41m    [m
+[32m+[m[32m  }[m
+[32m+[m[32m  cacularImc(): void {[m
+[32m+[m[32m    if (this.peso === null || this.peso <= 0) {[m
+[32m+[m[32m      alert('Por favor, insira um peso válido.');[m
+[32m+[m[32m      return;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    if (this.altura === null || this.altura <= 0) {[m
+[32m+[m[32m      alert('Por favor, insira uma altura válida.');[m
+[32m+[m[32m      return;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    debugger;[m
+[32m+[m[32m    this.imc = this.peso / (this.altura * this.altura);[m
+[32m+[m[41m    [m
+[32m+[m[32m    if (this.imc <= 18.5) {[m
+[32m+[m[32m      this.imcStatusResultado = 'Abaixo do peso';[m
+[32m+[m[32m     // alert('Abaixo do peso');[m
+[32m+[m[32m    } else if (this.imc <= 24.9) {[m
+[32m+[m[32m      this.imcStatusResultado = 'Peso normal';[m
+[32m+[m[32m     // alert('Peso normal');[m
+[32m+[m[32m    } else if (this.imc <= 29.9) {[m
+[32m+[m[32m      this.imcStatusResultado = 'Sobrepeso';[m
+[32m+[m[32m     // alert('Sobrepeso');[m
+[32m+[m[32m    } else {[m
+[32m+[m[32m      this.imcStatusResultado = 'Obesidade';[m[41m [m
+[32m+[m[32m     // alert('Obesidade');[m
+[32m+[m[32m    }[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/src/app/termo/termo.css b/src/app/termo/termo.css[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
+[1mdiff --git a/src/app/termo/termo.html b/src/app/termo/termo.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5893719[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/termo/termo.html[m
+[36m@@ -0,0 +1,59 @@[m
+[32m+[m[32m<div class="div-pai">[m
+[32m+[m[32m    <div class="div-form">[m
+[32m+[m[32m        <div>[m
+[32m+[m[32m            <h3>Termo</h3>[m
+[32m+[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div>[m
+[32m+[m[32m            <label for="palavra  ">tente adivinhar qual é a palavra do dia </label>[m
+[32m+[m[32m            <div>[m
+[32m+[m[32m                <input type="text" name="1" value="1" id="palavra" class="form-input" maxlength="1" [(ngModel)]="um"[m
+[32m+[m[32m                    placeholder="Digite a palavra">[m
+[32m+[m
+[32m+[m[32m                <div>[m
+[32m+[m[32m                    <input type="text" name="2" value="2" id="palavra1" class="form-input" maxlength="1"[m
+[32m+[m[32m                        [(ngModel)]="dois" placeholder="Digite a palavra">[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m                <div>[m
+[32m+[m[32m                    <input type="text" name="3" value="3" id="palavra2" class="form-input" maxlength="1"[m
+[32m+[m[32m                        [(ngModel)]="tres" placeholder="Digite a palavra">[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m                <div>[m
+[32m+[m[32m                    <input type="text" name="4" value="4" id="palavra3" class="form-input" maxlength="1"[m
+[32m+[m[32m                        [(ngModel)]="quatro" placeholder="Digite a palavra">[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m                <div>[m
+[32m+[m[32m                    <input type="text" name="5" value="5" id="palavra4" class="form-input" maxlength="1"[m
+[32m+[m[32m                        [(ngModel)]="cinco" placeholder="Digite a palavra">[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m                 <div>[m
+[32m+[m[32m                    <input type="text" name="5" value="5" id="palavra5" class="form-input" maxlength="1"[m
+[32m+[m[32m                        [(ngModel)]="seis" placeholder="Digite a palavra">[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m                 <div>[m
+[32m+[m[32m                    <input type="text" name="5" value="5" id="palavra6" class="form-input" maxlength="1"[m
+[32m+[m[32m                        [(ngModel)]="sete" placeholder="Digite a palavra">[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m                 <div>[m
+[32m+[m[32m                    <input type="text" name="5" value="5" id="palavra7" class="form-input" maxlength="1"[m
+[32m+[m[32m                        [(ngModel)]="oito" placeholder="Digite a palavra">[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m                <div>[m
+[32m+[m[32m                    <h3>Tipos de Label</h3>[m
+[32m+[m[41m                    [m
+[32m+[m[32m                    <label>[m
+[32m+[m
+[32m+[m[32m                        Nome:[m
+[32m+[m[32m                        <input type="text">[m
+[32m+[m[32m                    </label>[m
+[32m+[m
+[32m+[m[32m                    <label class="check">[m
+[32m+[m[32m                        <input type="checkbox">[m
+[32m+[m[32m                        Aceito os termos[m
+[32m+[m[32m                    </label>[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m            </div>[m
+[32m+[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m</div>[m
+\ No newline at end of file[m
+[1mdiff --git a/src/app/termo/termo.spec.ts b/src/app/termo/termo.spec.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..692e09b[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/termo/termo.spec.ts[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32mimport { ComponentFixture, TestBed } from '@angular/core/testing';[m
+[32m+[m
+[32m+[m[32mimport { Termo } from './termo';[m
+[32m+[m
+[32m+[m[32mdescribe('Termo', () => {[m
+[32m+[m[32m  let component: Termo;[m
+[32m+[m[32m  let fixture: ComponentFixture<Termo>;[m
+[32m+[m
+[32m+[m[32m  beforeEach(async () => {[m
+[32m+[m[32m    await TestBed.configureTestingModule({[m
+[32m+[m[32m      imports: [Termo],[m
+[32m+[m[32m    }).compileComponents();[m
+[32m+[m
+[32m+[m[32m    fixture = TestBed.createComponent(Termo);[m
+[32m+[m[32m    component = fixture.componentInstance;[m
+[32m+[m[32m    await fixture.whenStable();[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  it('should create', () => {[m
+[32m+[m[32m    expect(component).toBeTruthy();[m
+[32m+[m[32m  });[m
+[32m+[m[32m});[m
+[1mdiff --git a/src/app/termo/termo.ts b/src/app/termo/termo.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..58deee3[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/termo/termo.ts[m
+[36m@@ -0,0 +1,24 @@[m
+[32m+[m[32mimport { Component } from '@angular/core';[m
+[32m+[m[32mimport { FormsModule } from '@angular/forms';[m
+[32m+[m
+[32m+[m[32m@Component({[m
+[32m+[m[32m  selector: 'app-termo',[m
+[32m+[m[32m  imports: [FormsModule],[m
+[32m+[m[32m  templateUrl: './termo.html',[m
+[32m+[m[32m  styleUrl: './termo.css',[m
+[32m+[m[32m})[m
+[32m+[m[32mexport class TermoComponent {[m
+[32m+[m[32mum: string = "";[m
+[32m+[m[32mdois: string = "";[m
+[32m+[m[32mtres: string = "";[m
+[32m+[m[32m  quatro: string = "";[m
+[32m+[m[32m  cinco: string = "";[m
+[32m+[m[32m  seis: string = "";[m
+[32m+[m[32m  sete: string = "";[m
+[32m+[m[32m  oito: string = "";[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32m}[m
